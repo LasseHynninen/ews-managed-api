@@ -1781,6 +1781,26 @@ namespace Microsoft.Exchange.WebServices.Data
         }
 
         #endregion
+
+        #region MailTips operations
+        /// <summary>
+        /// Gets MailTips for given users. Calling this method results in a call to EWS.
+        /// </summary>
+        /// <param name="sendingAs">E-mail address that a user is trying to send as.</param>
+        /// <param name="recipients">Collection of recipients that would receive a copy of the message.</param>
+        /// <param name="requested">Mail tips requested from the service.</param>
+        /// <returns>List of GetMailTips results.</returns>
+        public GetMailTipsResults GetMailTips(string sendingAs, Mailbox[] recipients, MailTipsRequested requested)
+        {
+            GetMailTipsRequest request = new GetMailTipsRequest(this);
+            request.SendingAs = sendingAs;
+            request.Recipients = recipients;
+            request.MailTipsRequested = requested;
+
+            return request.Execute();
+        }
+        #endregion
+
         #region Attachment operations
 
         /// <summary>

@@ -96,6 +96,7 @@
     <Compile Include="ComplexProperties\PeopleInsights\StringInsightValue.cs" />
     <Compile Include="ComplexProperties\PeopleInsights\UserProfilePicture.cs" />
     <Compile Include="ComplexProperties\ReferenceAttachment.cs" />
+    <Compile Include="Core\Requests\GetMailTipsRequest.cs" />
     <Compile Include="Core\Requests\GetOMEConfigurationRequest.cs" />
     <Compile Include="Core\Requests\GetPeopleInsightsRequest.cs" />
     <Compile Include="Core\Requests\GetUserPhotoRequest.cs" />
@@ -103,10 +104,12 @@
     <Compile Include="Core\Responses\GetOMEConfigurationResponse.cs" />
     <Compile Include="Core\Responses\GetPeopleInsightsResponse.cs" />
     <Compile Include="Core\Responses\GetUserPhotoResponse.cs" />
+    <Compile Include="Core\Responses\MailTipsResponseMessage.cs" />
     <Compile Include="Core\Responses\SetOMEConfigurationResponse.cs" />
     <Compile Include="Core\Responses\RegisterConsentResponse.cs" />
     <Compile Include="Enumerations\ConsentState.cs" />
     <Compile Include="Enumerations\GetUserPhotoStatus.cs" />
+    <Compile Include="Enumerations\MailTipsRequested.cs" />
     <Compile Include="Enumerations\PeopleQueryContextKeys.cs" />
     <Compile Include="Enumerations\PeopleQuerySource.cs" />
     <Compile Include="Enumerations\UserPhotoSize.cs" />
@@ -121,6 +124,7 @@
     <Compile Include="Groups\ComplexProperties\UnifiedGroup.cs" />
     <Compile Include="Groups\ComplexProperties\UnifiedGroupsSet.cs" />
     <Compile Include="Interfaces\IPeopleQueryResults.cs" />
+    <Compile Include="Misc\MailTips\GetMailTipsResults.cs" />
     <Compile Include="Properties\AssemblyInfoMicrosoft.cs" />
     <Compile Include="Properties\AssemblyInfoOpenSource.cs" />
     <Compile Include="Attributes\AttachableAttribute.cs" />
