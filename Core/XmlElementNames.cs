@@ -889,6 +889,8 @@ namespace Microsoft.Exchange.WebServices.Data
         public const string ExternalMemberCount = "ExternalMemberCount";
         public const string TotalMemberCount = "TotalMemberCount";
         public const string MaxMessageSize = "MaxMessageSize";
+        public const string ReplyBody = "ReplyBody";
+        public const string Scope = "Scope";
         #endregion
 
         #region Conversations

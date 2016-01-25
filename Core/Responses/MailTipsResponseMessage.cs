@@ -5,9 +5,10 @@ namespace Microsoft.Exchange.WebServices.Data
     /// </summary>
     public sealed class MailTipsResponseMessage : ServiceResponse
     {
+        private MailTipOutOfOffice oof;
         private Mailbox recipientAddress;
         private bool? mailboxFull, isInvalid, isModerated, deliveryRestricted;
-        private string customMailTip, oof, pendingMailTips;
+        private string customMailTip, pendingMailTips;
         private int? totalMemberCount, externalMemberCount, maxMessageSize;
 
         /// <summary>
@@ -36,6 +37,11 @@ namespace Microsoft.Exchange.WebServices.Data
             pendingMailTips = reader.ReadElementValue(XmlNamespace.Types, XmlElementNames.PendingMailTips);
             reader.Read();
 
+            if (reader.IsStartElement(XmlNamespace.Types, XmlElementNames.OutOfOffice))
+            {
+                oof = new MailTipOutOfOffice();
+                oof.LoadFromXml(reader);
+            }
             if (reader.IsStartElement(XmlNamespace.Types, XmlElementNames.MailboxFull))
             {
                 var mfTextValue = reader.ReadElementValue(XmlNamespace.Types, XmlElementNames.MailboxFull);
@@ -83,6 +89,11 @@ namespace Microsoft.Exchange.WebServices.Data
                 externalMemberCount = System.Convert.ToInt32(textValue);
                 reader.Read();
             }
+            if (reader.IsStartElement(XmlNamespace.Types, XmlElementNames.Scope))
+            {
+                reader.ReadElementValue(XmlNamespace.Types, XmlElementNames.Scope);
+                reader.Read();
+            }
             reader.ReadEndElementIfNecessary(XmlNamespace.Messages, XmlElementNames.MailTips);
         }
 
@@ -101,7 +112,7 @@ namespace Microsoft.Exchange.WebServices.Data
         /// <summary>
         /// Represents the response message and a duration time for sending the response message.
         /// </summary>
-        public string OutOfOffice { get { return oof; } }
+        public MailTipOutOfOffice OutOfOffice { get { return oof; } }
 
         /// <summary>
         /// Indicates whether the mailbox for the recipient is full.
